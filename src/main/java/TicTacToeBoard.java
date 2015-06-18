@@ -23,10 +23,10 @@ public class TicTacToeBoard {
     }
 
 
-    public void updateBoard(String userInput) {
+    public void updateBoard(String symbol, String userInput) {
         int input = Integer.parseInt(userInput);
         if (board[input].equals("")) {
-            board[input] = "X";
+            board[input] = symbol;
         }
     }
 

@@ -31,8 +31,7 @@ public class TicTacToeGame {
         ticTacToeBoard.drawBoard();
         promptUserInput();
         String userInput = getUserInput();
-        ticTacToeBoard.updateBoard(userInput);
-        //ticTacToeBoard.drawBoard();
+        ticTacToeBoard.updateBoard("X", userInput);
     }
 
     public void promptUserInput() {

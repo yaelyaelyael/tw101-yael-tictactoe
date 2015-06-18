@@ -26,16 +26,32 @@ public class TicTacToeBoardTest {
 
     @Test
     public void shouldChangeFirstBoardSpaceToXWhen0IsEnteredByUser() {
-        ticTacToeBoard.updateBoard("0");
+        ticTacToeBoard.updateBoard("X", "0");
 
         assertEquals(board[0], "X");
     }
 
     @Test
     public void shouldChangeMiddleBoardSpaceToXWhen4IsEnteredByUser() {
-        ticTacToeBoard.updateBoard("4");
+        ticTacToeBoard.updateBoard("X", "4");
 
         assertEquals(board[4], "X");
+    }
+
+    @Test
+    public void shouldPrintOInMiddleSpotWhenPlayer2Enters4() {
+        ticTacToeBoard.updateBoard("O", "4");
+
+        assertEquals(board[4], "O");
+    }
+
+    @Test
+    public void shouldPrintBothPlayer1MoveAndPlayerTwoMoveWhenBothHaveMoved() {
+        ticTacToeBoard.updateBoard("X", "0");
+        ticTacToeBoard.updateBoard("O", "1");
+
+        assertEquals(board[0], "X");
+        assertEquals(board[1], "O");
     }
 
 

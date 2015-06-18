@@ -49,7 +49,7 @@ public class TicTacToeGameTest {
 
         ticTacToeGame.startGame();
 
-        verify(ticTacToeBoard).updateBoard("0");
+        verify(ticTacToeBoard).updateBoard("X", "0");
     }
 
 
