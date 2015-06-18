@@ -1,5 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
@@ -33,6 +31,7 @@ public class TicTacToeGame {
         ticTacToeGame.startGame();
     }
 
+
     public void startGame() {
         ticTacToeBoard.drawBoard();
         promptUserInput();
@@ -45,6 +44,7 @@ public class TicTacToeGame {
         ticTacToeBoard.updateBoard(player2, userInput2);
         ticTacToeBoard.drawBoard();
     }
+
 
     public void promptUserInput() {
         printStream.println("Please enter a number between 1 and 9!");

@@ -35,7 +35,7 @@ public class TicTacToeGameTest {
     public void shouldDisplayBoardWhenGameStarts() {
         ticTacToeGame.startGame();
 
-        verify(ticTacToeBoard).drawBoard();
+        verify(ticTacToeBoard, times(3)).drawBoard();
     }
 
 
