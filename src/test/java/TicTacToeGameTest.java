@@ -17,13 +17,17 @@ public class TicTacToeGameTest {
     private TicTacToeGame ticTacToeGame;
     private TicTacToeBoard ticTacToeBoard;
     private SpecialBufferedReader specialBufferedReader;
+    private Player player1;
+    private Player player2;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
         ticTacToeBoard = mock(TicTacToeBoard.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
-        ticTacToeGame = new TicTacToeGame(printStream, ticTacToeBoard, specialBufferedReader);
+        player1 = mock(Player.class);
+        player2 = mock(Player.class);
+        ticTacToeGame = new TicTacToeGame(printStream, ticTacToeBoard, specialBufferedReader, player1, player2);
     }
 
 
@@ -49,7 +53,7 @@ public class TicTacToeGameTest {
 
         ticTacToeGame.startGame();
 
-        verify(ticTacToeBoard).updateBoard("X", "0");
+        verify(ticTacToeBoard).updateBoard(player1, "0");
     }
 
 

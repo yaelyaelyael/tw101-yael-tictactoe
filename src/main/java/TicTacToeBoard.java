@@ -8,10 +8,14 @@ public class TicTacToeBoard {
 
     private PrintStream printStream;
     private String[] board = {"","","","","","","","",""};
+    private Player player1;
+    private Player player2;
 
-    public TicTacToeBoard(PrintStream printStream, String[] board) {
+    public TicTacToeBoard(PrintStream printStream, String[] board, Player player1, Player player2) {
         this.printStream = printStream;
         this.board = board;
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
 
@@ -23,10 +27,10 @@ public class TicTacToeBoard {
     }
 
 
-    public void updateBoard(String symbol, String userInput) {
+    public void updateBoard(Player player, String userInput) {
         int input = Integer.parseInt(userInput);
         if (board[input].equals("")) {
-            board[input] = symbol;
+            board[input] = player.details();
         }
     }
 

@@ -11,18 +11,24 @@ public class TicTacToeGame {
     private PrintStream printStream;
     private TicTacToeBoard ticTacToeBoard;
     private SpecialBufferedReader specialBufferedReader;
+    private Player player1;
+    private Player player2;
 
-    public TicTacToeGame(PrintStream printStream, TicTacToeBoard ticTacToeBoard, SpecialBufferedReader specialBufferedReader) {
+    public TicTacToeGame(PrintStream printStream, TicTacToeBoard ticTacToeBoard, SpecialBufferedReader specialBufferedReader, Player player1, Player player2) {
         this.printStream = printStream;
         this.ticTacToeBoard = ticTacToeBoard;
         this.specialBufferedReader = specialBufferedReader;
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
     public static void main(String[] args) {
         String[] board = {"","","","","","","","",""};
-        TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(System.out, board);
+        Player player1 = new Player("X");
+        Player player2 = new Player("O");
+        TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(System.out, board, player1, player2);
         SpecialBufferedReader specialBufferedReader =new SpecialBufferedReader(new InputStreamReader(System.in));
-        TicTacToeGame ticTacToeGame = new TicTacToeGame(System.out, ticTacToeBoard, specialBufferedReader);
+        TicTacToeGame ticTacToeGame = new TicTacToeGame(System.out, ticTacToeBoard, specialBufferedReader, player1, player2);
 
         ticTacToeGame.startGame();
     }
@@ -30,8 +36,14 @@ public class TicTacToeGame {
     public void startGame() {
         ticTacToeBoard.drawBoard();
         promptUserInput();
-        String userInput = getUserInput();
-        ticTacToeBoard.updateBoard("X", userInput);
+
+        String userInput1 = getUserInput();
+        ticTacToeBoard.updateBoard(player1, userInput1);
+        ticTacToeBoard.drawBoard();
+
+        String userInput2 = getUserInput();
+        ticTacToeBoard.updateBoard(player2, userInput2);
+        ticTacToeBoard.drawBoard();
     }
 
     public void promptUserInput() {
