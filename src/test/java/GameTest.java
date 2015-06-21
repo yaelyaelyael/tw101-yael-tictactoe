@@ -11,11 +11,11 @@ import static org.mockito.Mockito.*;
 /**
  * Created by ykaufman on 6/18/15.
  */
-public class TicTacToeGameTest {
+public class GameTest {
 
     private PrintStream printStream;
-    private TicTacToeGame ticTacToeGame;
-    private TicTacToeBoard ticTacToeBoard;
+    private Game game;
+    private Board board;
     private SpecialBufferedReader specialBufferedReader;
     private Player player1;
     private Player player2;
@@ -23,25 +23,25 @@ public class TicTacToeGameTest {
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
-        ticTacToeBoard = mock(TicTacToeBoard.class);
+        board = mock(Board.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
         player1 = mock(Player.class);
         player2 = mock(Player.class);
-        ticTacToeGame = new TicTacToeGame(printStream, ticTacToeBoard, specialBufferedReader, player1, player2);
+        game = new Game(printStream, board, specialBufferedReader, player1, player2);
     }
 
 
     @Test
     public void shouldDisplayBoardWhenGameStarts() {
-        ticTacToeGame.startGame();
+        game.startGame();
 
-        verify(ticTacToeBoard, times(3)).drawBoard();
+        verify(board).drawBoard();
     }
 
 
     @Test
     public void shouldPromptUserToEnterNumberWhenGameStarts() {
-        ticTacToeGame.promptUserInput();
+        game.getUserInput();
 
         verify(printStream).println(contains("Please enter a number between 1 and 9"));
     }
@@ -51,9 +51,9 @@ public class TicTacToeGameTest {
     public void shouldCallUpdateBoardWhenUserInputIsEntered() throws IOException{
         when(specialBufferedReader.readLine()).thenReturn("0");
 
-        ticTacToeGame.startGame();
+        game.startGame();
 
-        verify(ticTacToeBoard).updateBoard(player1, "0");
+        verify(board).updateBoard("X", "0");
     }
 
 
