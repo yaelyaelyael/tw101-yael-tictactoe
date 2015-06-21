@@ -1,5 +1,4 @@
 import java.io.PrintStream;
-import java.util.Arrays;
 
 /**
  * Created by ykaufman on 6/18/15.
@@ -7,27 +6,27 @@ import java.util.Arrays;
 public class Board {
 
     private PrintStream printStream;
-    private String[] board = {"","","","","","","","",""};
+    private String[] cells = {"","","","","","","","",""};
 
     public Board(PrintStream printStream, String[] board) {
         this.printStream = printStream;
-        this.board = board;
+        this.cells = board;
     }
 
 
     public void drawBoard() {
 
         printStream.println(
-                " " + board[0] + " | " + board[1] + " | " + board[2] + "\n" + "---------\n" +
-                " " + board[3] + " | " + board[4] + " | " + board[5] + "\n" + "---------\n" +
-                " " + board[6] + " | " + board[7] + " | " + board[8] + "\n");
+                " " + cells[0] + " | " + cells[1] + " | " + cells[2] + "\n" + "---------\n" +
+                " " + cells[3] + " | " + cells[4] + " | " + cells[5] + "\n" + "---------\n" +
+                " " + cells[6] + " | " + cells[7] + " | " + cells[8] + "\n");
     }
 
 
     public void updateBoard(String symbol, String userInput) {
         int input = Integer.parseInt(userInput);
-        if (board[input].equals("")) {
-            board[input] = symbol;
+        if (cells[input].equals("")) {
+            cells[input] = symbol;
         }
         drawBoard();
     }
