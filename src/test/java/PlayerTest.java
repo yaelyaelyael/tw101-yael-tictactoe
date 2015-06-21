@@ -5,6 +5,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -14,13 +15,21 @@ public class PlayerTest {
 
     private PrintStream printStream;
     private Board board;
-    private Player player1;
+    private Player player;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
         board = mock(Board.class);
-        player1 = new Player("X", board);
+        player = new Player("X", board);
+    }
+
+    @Test
+    public void shouldCallUpdateBoardWhenMoveIsCalled() {
+        String location = "1";
+        player.move(location);
+
+        verify(board).updateBoard("X", location);
     }
 
 

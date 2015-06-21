@@ -9,24 +9,21 @@ public class Game {
     private PrintStream printStream;
     private Board board;
     private SpecialBufferedReader specialBufferedReader;
-    private Player player1; //need to change to List<Player> players
-    private Player player2;
+    private Player player; //need to change to List<Player> players
 
-    public Game(PrintStream printStream, Board board, SpecialBufferedReader specialBufferedReader, Player player1, Player player2) {
+    public Game(PrintStream printStream, Board board, SpecialBufferedReader specialBufferedReader, Player player) {
         this.printStream = printStream;
         this.board = board;
         this.specialBufferedReader = specialBufferedReader;
-        this.player1 = player1;
-        this.player2 = player2;
+        this.player = player;
     }
 
     public static void main(String[] args) {
         String[] cells = {"","","","","","","","",""};
         Board board = new Board(System.out, cells);
-        Player player1 = new Player("X", board);
-        Player player2 = new Player("O", board);
+        Player player = new Player("X", board);
         SpecialBufferedReader specialBufferedReader =new SpecialBufferedReader(new InputStreamReader(System.in));
-        Game game = new Game(System.out, board, specialBufferedReader, player1, player2);
+        Game game = new Game(System.out, board, specialBufferedReader, player);
 
         game.startGame();
     }
@@ -35,15 +32,13 @@ public class Game {
     public void startGame() {
         board.drawBoard();
 
-        String userInput1 = getUserInput();
-        board.updateBoard("X", userInput1);
+        String userInput = getUserInput();
 
-        String userInput2 = getUserInput();
-        board.updateBoard("O", userInput2);
+        player.move(userInput);
     }
 
     public String getUserInput() {
-        printStream.println("Please enter a number between 1 and 9!");
+        printStream.println("Player 1: Please enter a number between 1 and 9!");
         return specialBufferedReader.readLine();
     }
 

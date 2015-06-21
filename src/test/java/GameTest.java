@@ -17,17 +17,15 @@ public class GameTest {
     private Game game;
     private Board board;
     private SpecialBufferedReader specialBufferedReader;
-    private Player player1;
-    private Player player2;
+    private Player player;
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
         board = mock(Board.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
-        player1 = mock(Player.class);
-        player2 = mock(Player.class);
-        game = new Game(printStream, board, specialBufferedReader, player1, player2);
+        player = mock(Player.class);
+        game = new Game(printStream, board, specialBufferedReader, player);
     }
 
 
@@ -46,15 +44,18 @@ public class GameTest {
         verify(printStream).println(contains("Please enter a number between 1 and 9"));
     }
 
-
     @Test
-    public void shouldCallUpdateBoardWhenUserInputIsEntered() throws IOException{
-        when(specialBufferedReader.readLine()).thenReturn("0");
+    public void shouldCallMoveWhenUserInputIsEntered() {
+        String userInput = "1";
+        when(specialBufferedReader.readLine()).thenReturn(userInput);
 
         game.startGame();
 
-        verify(board).updateBoard("X", "0");
+        verify(player).move(userInput);
+
     }
+
+
 
 
 }
