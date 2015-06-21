@@ -61,5 +61,10 @@ public class GameTest {
         verify(printStream).println(contains("Player 2"));
     }
 
+//    @Test
+//    public void shouldDisplayMessageWhenUserInputCellIsTaken() {
+//
+//
+//    }
 
 }

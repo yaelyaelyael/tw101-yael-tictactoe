@@ -51,8 +51,7 @@ public class BoardTest {
 
         assertEquals(cells[1], "X");
         assertEquals(cells[2], "O");
-
-
     }
+
 
 }
