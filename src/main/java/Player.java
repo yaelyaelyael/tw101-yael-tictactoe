@@ -6,7 +6,7 @@ public class Player {
     private String symbol;
     private Board board;
 
-    public Player(String symbol) {
+    public Player(String symbol, Board board) {
         this.symbol = symbol;
         this.board = board;
     }

@@ -12,8 +12,8 @@ import static org.mockito.Mockito.*;
 public class BoardTest {
 
     private PrintStream printStream;
-    private Board ticTacToeBoard;
-    private String[] board = {"","","","","","","","",""};
+    private Board board;
+    private String[] cells = {"","","","","","","","",""};
     private Player player1;
     private Player player2;
 
@@ -21,40 +21,40 @@ public class BoardTest {
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
-        ticTacToeBoard = new Board(printStream, board);
-        player1 = new Player("X");
-        player2 = new Player("O");
+        board = new Board(printStream, cells);
+        player1 = new Player("X", board);
+        player2 = new Player("O", board);
 
     }
 
     @Test
     public void shouldChangeFirstBoardSpaceToXWhenZeroIsEnteredByUser() {
-        ticTacToeBoard.updateBoard("X", "0");
+        board.updateBoard("X", "0");
 
-        assertEquals(board[0], "X");
+        assertEquals(cells[0], "X");
     }
 
     @Test
     public void shouldChangeMiddleBoardSpaceToXWhenFourIsEnteredByUser() {
-        ticTacToeBoard.updateBoard("X", "4");
+        board.updateBoard("X", "4");
 
-        assertEquals(board[4], "X");
+        assertEquals(cells[4], "X");
     }
 
     @Test
     public void shouldPrintOInMiddleSpotToOWhenPlayerTwoEntersFour() {
-        ticTacToeBoard.updateBoard("O", "4");
+        board.updateBoard("O", "4");
 
-        assertEquals(board[4], "O");
+        assertEquals(cells[4], "O");
     }
 
     @Test
     public void shouldPrintBothPlayerOneMoveAndPlayerTwoMoveWhenBothHaveMoved() {
-        ticTacToeBoard.updateBoard("X", "0");
-        ticTacToeBoard.updateBoard("O", "1");
+        board.updateBoard("X", "0");
+        board.updateBoard("O", "1");
 
-        assertEquals(board[0], "X");
-        assertEquals(board[1], "O");
+        assertEquals(cells[0], "X");
+        assertEquals(cells[1], "O");
     }
 
 

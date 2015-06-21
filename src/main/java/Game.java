@@ -12,21 +12,21 @@ public class Game {
     private Player player1; //need to change to List<Player> players
     private Player player2;
 
-    public Game(PrintStream printStream, Board ticTacToeBoard, SpecialBufferedReader specialBufferedReader, Player player1, Player player2) {
+    public Game(PrintStream printStream, Board board, SpecialBufferedReader specialBufferedReader, Player player1, Player player2) {
         this.printStream = printStream;
-        this.board = ticTacToeBoard;
+        this.board = board;
         this.specialBufferedReader = specialBufferedReader;
         this.player1 = player1;
         this.player2 = player2;
     }
 
     public static void main(String[] args) {
-        String[] board = {"","","","","","","","",""};
-        Player player1 = new Player("X");
-        Player player2 = new Player("O");
-        Board ticTacToeBoard = new Board(System.out, board);
+        String[] cells = {"","","","","","","","",""};
+        Board board = new Board(System.out, cells);
+        Player player1 = new Player("X", board);
+        Player player2 = new Player("O", board);
         SpecialBufferedReader specialBufferedReader =new SpecialBufferedReader(new InputStreamReader(System.in));
-        Game game = new Game(System.out, ticTacToeBoard, specialBufferedReader, player1, player2);
+        Game game = new Game(System.out, board, specialBufferedReader, player1, player2);
 
         game.startGame();
     }
