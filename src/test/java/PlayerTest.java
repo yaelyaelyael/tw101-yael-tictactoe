@@ -19,7 +19,7 @@ public class PlayerTest {
     @Before
     public void setUp() {
         board = mock(Board.class);
-        player = new Player("X", board);
+        player = new Player("Player 1", "X", board);
     }
 
     @Test

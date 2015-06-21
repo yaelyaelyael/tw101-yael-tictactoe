@@ -12,8 +12,8 @@ public class Main {
         Board board = new Board(System.out, cells);
         SpecialBufferedReader specialBufferedReader =new SpecialBufferedReader(new InputStreamReader(System.in));
         List<Player> players = new ArrayList<>();
-        players.add(new Player("X", board));
-        players.add(new Player("O", board));
+        players.add(new Player("Player 1", "X", board));
+        players.add(new Player("Player 2", "O", board));
         Game game = new Game(System.out, board, specialBufferedReader, players);
 
         game.startGame();

@@ -19,7 +19,6 @@ public class GameTest {
     private Board board;
     private SpecialBufferedReader specialBufferedReader;
     private List<Player> players;
-    private Player player;
 
     @Before
     public void setUp() {
@@ -27,7 +26,6 @@ public class GameTest {
         board = mock(Board.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
         players = mock(List.class);
-        player = mock(Player.class);
         game = new Game(printStream, board, specialBufferedReader, players);
     }
 
@@ -46,18 +44,6 @@ public class GameTest {
 
         verify(printStream).println(contains("Please enter a number between 1 and 9"));
     }
-
-    @Test
-    public void shouldCallMoveWhenUserInputIsEntered() {
-        String userInput = "1";
-        when(specialBufferedReader.readLine()).thenReturn(userInput);
-
-        game.startGame();
-
-        verify(player).move(userInput);
-
-    }
-
 
 
 

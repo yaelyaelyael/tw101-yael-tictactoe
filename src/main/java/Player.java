@@ -3,10 +3,12 @@
  */
 public class Player {
 
+    private String name;
     private String symbol;
     private Board board;
 
-    public Player(String symbol, Board board) {
+    public Player(String name, String symbol, Board board) {
+        this.name = name;
         this.symbol = symbol;
         this.board = board;
     }
