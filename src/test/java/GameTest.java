@@ -40,24 +40,23 @@ public class GameTest {
         verify(board).drawBoard();
     }
 
-
     @Test
     public void shouldPromptUserForInputWhenGameStarts() {
-        game.getUserInput();
+        game.getUserInput("Player 1");
 
         verify(printStream).println(contains("Please enter a number between 1 and 9"));
     }
 
     @Test
     public void shouldPromptPlayerOneForInputWhenGameStarts() {
-        game.getUserInput();
+        game.getUserInput("Player 1");
 
         verify(printStream).println(contains("Player 1"));
     }
 
     @Test
     public void shouldPromptPlayerTwoForInputWhenGameStarts() {
-        game.getUserInput();
+        game.getUserInput("Player 2");
 
         verify(printStream).println(contains("Player 2"));
     }

@@ -24,14 +24,14 @@ public class Game {
         board.drawBoard();
 
         for (Player player : players) {
-            String userInput = getUserInput();
+            String userInput = getUserInput(player.name());
             (player).move(userInput);
         }
     }
 
 
-    public String getUserInput() {
-        printStream.println("Player 1: Please enter a number between 1 and 9!");
+    public String getUserInput(String playerName) {
+        printStream.println(playerName + ": Please enter a number between 1 and 9!");
         return specialBufferedReader.readLine();
     }
 
