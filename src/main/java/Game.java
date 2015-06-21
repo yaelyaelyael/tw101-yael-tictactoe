@@ -30,9 +30,11 @@ public class Game {
         }
     }
 
+
     public String getUserInput() {
         printStream.println("Player 1: Please enter a number between 1 and 9!");
         return specialBufferedReader.readLine();
     }
+
 
 }

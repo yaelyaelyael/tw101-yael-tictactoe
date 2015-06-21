@@ -24,14 +24,14 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldChangeTopLeftCornerToXWhenZeroIsEnteredByPlayer1() {
+    public void shouldChangeTopLeftCornerToXWhenZeroIsEnteredByPlayerOne() {
         board.updateBoard("X", "0");
 
         assertEquals(cells[0], "X");
     }
 
     @Test
-    public void shouldChangeMiddleBoardSpaceToXWhenFourIsEnteredByPlayer1() {
+    public void shouldChangeMiddleBoardSpaceToXWhenFourIsEnteredByPlayerOne() {
         board.updateBoard("X", "4");
 
         assertEquals(cells[4], "X");
