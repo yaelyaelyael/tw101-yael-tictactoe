@@ -14,35 +14,31 @@ public class BoardTest {
     private PrintStream printStream;
     private Board board;
     private String[] cells = {"","","","","","","","",""};
-    private Player player1;
-    private Player player2;
 
 
     @Before
     public void setUp() {
         printStream = mock(PrintStream.class);
         board = new Board(printStream, cells);
-        player1 = new Player("X", board);
-        player2 = new Player("O", board);
 
     }
 
     @Test
-    public void shouldChangeFirstBoardSpaceToXWhenZeroIsEnteredByUser() {
+    public void shouldChangeFirstBoardSpaceToXWhenZeroIsEnteredByPlayer1() {
         board.updateBoard("X", "0");
 
         assertEquals(cells[0], "X");
     }
 
     @Test
-    public void shouldChangeMiddleBoardSpaceToXWhenFourIsEnteredByUser() {
+    public void shouldChangeMiddleBoardSpaceToXWhenFourIsEnteredByPlayer1() {
         board.updateBoard("X", "4");
 
         assertEquals(cells[4], "X");
     }
 
     @Test
-    public void shouldPrintOInMiddleSpotToOWhenPlayerTwoEntersFour() {
+    public void shouldPrintOInFirstSpotWhenZeroIsEnteredByPlayer2() {
         board.updateBoard("O", "4");
 
         assertEquals(cells[4], "O");

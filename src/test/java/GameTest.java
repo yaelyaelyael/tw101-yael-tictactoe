@@ -3,6 +3,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.contains;
@@ -17,6 +18,7 @@ public class GameTest {
     private Game game;
     private Board board;
     private SpecialBufferedReader specialBufferedReader;
+    private List<Player> players;
     private Player player;
 
     @Before
@@ -24,8 +26,9 @@ public class GameTest {
         printStream = mock(PrintStream.class);
         board = mock(Board.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
+        players = mock(List.class);
         player = mock(Player.class);
-        game = new Game(printStream, board, specialBufferedReader, player);
+        game = new Game(printStream, board, specialBufferedReader, players);
     }
 
 
@@ -38,7 +41,7 @@ public class GameTest {
 
 
     @Test
-    public void shouldPromptUserToEnterNumberWhenGameStarts() {
+    public void shouldPromptUserForInputWhenGameStarts() {
         game.getUserInput();
 
         verify(printStream).println(contains("Please enter a number between 1 and 9"));

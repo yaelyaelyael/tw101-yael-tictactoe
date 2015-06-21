@@ -13,13 +13,11 @@ import static org.mockito.Mockito.when;
  */
 public class PlayerTest {
 
-    private PrintStream printStream;
     private Board board;
     private Player player;
 
     @Before
     public void setUp() {
-        printStream = mock(PrintStream.class);
         board = mock(Board.class);
         player = new Player("X", board);
     }
