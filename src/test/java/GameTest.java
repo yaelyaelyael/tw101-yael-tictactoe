@@ -48,6 +48,19 @@ public class GameTest {
         verify(printStream).println(contains("Please enter a number between 1 and 9"));
     }
 
+    @Test
+    public void shouldPromptPlayerOneForInputWhenGameStarts() {
+        game.getUserInput();
+
+        verify(printStream).println(contains("Player 1"));
+    }
+
+    @Test
+    public void shouldPromptPlayerTwoForInputWhenGameStarts() {
+        game.getUserInput();
+
+        verify(printStream).println(contains("Player 2"));
+    }
 
 
 }
