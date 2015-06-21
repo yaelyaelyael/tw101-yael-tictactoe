@@ -19,8 +19,5 @@ public class SpecialBufferedReader extends BufferedReader{
             catch (IOException e) {
                 throw new RuntimeIOException(e);
             }
-            catch (NumberFormatException e) {
-                return "-1";
-            }
         }
     }
