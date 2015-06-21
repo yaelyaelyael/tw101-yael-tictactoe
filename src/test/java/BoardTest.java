@@ -44,14 +44,5 @@ public class BoardTest {
         assertEquals(cells[4], "O");
     }
 
-    @Test
-    public void shouldPrintBothPlayerOneMoveAndPlayerTwoMoveWhenBothHaveMoved() {
-        board.updateBoard("X", "0");
-        board.updateBoard("O", "1");
-
-        assertEquals(cells[0], "X");
-        assertEquals(cells[1], "O");
-    }
-
 
 }
