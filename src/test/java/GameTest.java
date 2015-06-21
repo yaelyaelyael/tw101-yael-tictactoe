@@ -62,7 +62,7 @@ public class GameTest {
     }
 
 //    @Test
-//    public void shouldDisplayMessageWhenUserInputCellIsTaken() {
+//    public void shouldDisplayMessageWhenMoveLocationIsAlreadyTaken() {
 //
 //
 //    }

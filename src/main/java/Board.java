@@ -24,7 +24,7 @@ public class Board {
 
 
     public void updateBoard(String symbol, String userInput) {
-        int input = Integer.parseInt(userInput)-1;
+        int input = Integer.parseInt(userInput) - 1;
         if (cells[input].equals("")) {
             cells[input] = symbol;
         }
