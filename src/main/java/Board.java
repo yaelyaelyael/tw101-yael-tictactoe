@@ -6,11 +6,11 @@ import java.io.PrintStream;
 public class Board {
 
     private PrintStream printStream;
-    private String[] cells = {"","","","","","","","",""};
+    private String[] cells;
 
-    public Board(PrintStream printStream, String[] board) {
+    public Board(PrintStream printStream, String[] cells) {
         this.printStream = printStream;
-        this.cells = board;
+        this.cells = cells;
     }
 
 

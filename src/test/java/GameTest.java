@@ -19,7 +19,7 @@ public class GameTest {
     private Board board;
     private SpecialBufferedReader specialBufferedReader;
     private List<Player> players;
-    private Player player;
+    private Player player1;
 
     @Before
     public void setUp() {
@@ -27,8 +27,8 @@ public class GameTest {
         board = mock(Board.class);
         specialBufferedReader = mock(SpecialBufferedReader.class);
         players = mock(List.class);
-        player = mock(Player.class);
-        players.add(player);
+        player1 = mock(Player.class);
+        players.add(player1);
         game = new Game(printStream, board, specialBufferedReader, players);
     }
 

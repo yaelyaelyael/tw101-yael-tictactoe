@@ -20,7 +20,6 @@ public class Game {
         this.players = players;
     }
 
-
     public void startGame() {
         board.drawBoard();
 
