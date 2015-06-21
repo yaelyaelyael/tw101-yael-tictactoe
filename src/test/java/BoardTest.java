@@ -24,7 +24,7 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldChangeFirstBoardSpaceToXWhenZeroIsEnteredByPlayer1() {
+    public void shouldChangeTopLeftCornerToXWhenZeroIsEnteredByPlayer1() {
         board.updateBoard("X", "0");
 
         assertEquals(cells[0], "X");
@@ -38,11 +38,21 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldPrintOInFirstSpotWhenZeroIsEnteredByPlayer2() {
+    public void shouldChangeTopRightCornerToOWhenZeroIsEnteredByPlayerWithOSymbol() {
         board.updateBoard("O", "4");
 
         assertEquals(cells[4], "O");
     }
 
+    @Test
+    public void shouldDrawBothPlayerSymbolsIfBothPlayersHaveEnteredDifferentInput() {
+        board.updateBoard("X", "1");
+        board.updateBoard("O", "2");
+
+        assertEquals(cells[1], "X");
+        assertEquals(cells[2], "O");
+
+
+    }
 
 }
